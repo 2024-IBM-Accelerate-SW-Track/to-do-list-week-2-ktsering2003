@@ -12,14 +12,12 @@ class Home extends Component {
   }
 
   addTodo = (todo) => {
-    const { todos } = this.state;
-    const duplicate = todos.find(item => item.content === todo.content);
-  
-    if (!duplicate) {
-      this.setState({
-        todos: [...todos, todo]
-      });
+    if (this.state.todos.find(t => t.content === todo.content)) {
+      return; // Do not add duplicate tasks
     }
+    this.setState({
+      todos: [...this.state.todos, todo],
+    });
   };
 
   deleteTodo = (id) => {
