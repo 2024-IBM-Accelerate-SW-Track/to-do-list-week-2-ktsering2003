@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { Button, TextField } from "@mui/material";
 
 class AddTodo extends Component {
   constructor() {
     super();
     this.state = {
       content: "",
-      date: "",
+      date: ""
     };
   }
 
@@ -18,15 +19,14 @@ class AddTodo extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { content, date } = this.state;
-    if (content.trim() && !this.props.todos.find(todo => todo.content === content)) {
+    if (this.state.content.trim()) {
       this.props.addTodo({
-        content,
-        date,
+        content: this.state.content,
+        date: this.state.date,
       });
       this.setState({
         content: "",
-        date: "",
+        date: ""
       });
     }
   };
@@ -34,15 +34,22 @@ class AddTodo extends Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
+        <TextField
+          label="Add New Item"
+          variant="outlined"
           onChange={this.handleChange}
           value={this.state.content}
-          aria-label="Add New Item"
+          data-testid="new-item-textfield"
         />
-        <button onClick={this.handleSubmit} data-testid="new-item-button">
+        <Button
+          style={{ marginLeft: "10px" }}
+          onClick={this.handleSubmit}
+          variant="contained"
+          color="primary"
+          data-testid="new-item-button"
+        >
           Add
-        </button>
+        </Button>
       </div>
     );
   }
