@@ -12,13 +12,14 @@ class Home extends Component {
   }
 
   addTodo = (todo) => {
-    const exists = this.state.todos.find(t => t.content === todo.content);
-    if (exists) return;
-    todo.id = Math.random();
-    let new_list = [...this.state.todos, todo];
-    this.setState({
-      todos: new_list,
-    });
+    const { todos } = this.state;
+    const duplicate = todos.find(item => item.content === todo.content);
+  
+    if (!duplicate) {
+      this.setState({
+        todos: [...todos, todo]
+      });
+    }
   };
 
   deleteTodo = (id) => {
