@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Button, TextField } from "@mui/material";
 
 class AddTodo extends Component {
   constructor() {
     super();
     this.state = {
       content: "",
-      date: ""
+      date: "",
     };
   }
 
@@ -26,7 +25,7 @@ class AddTodo extends Component {
       });
       this.setState({
         content: "",
-        date: ""
+        date: "",
       });
     }
   };
@@ -34,22 +33,15 @@ class AddTodo extends Component {
   render() {
     return (
       <div>
-        <TextField
-          label="Add New Item"
-          variant="outlined"
+        <input
+          type="text"
           onChange={this.handleChange}
           value={this.state.content}
-          data-testid="new-item-textfield"
+          aria-label="Add New Item"
         />
-        <Button
-          style={{ marginLeft: "10px" }}
-          onClick={this.handleSubmit}
-          variant="contained"
-          color="primary"
-          data-testid="new-item-button"
-        >
+        <button onClick={this.handleSubmit} data-testid="new-item-button">
           Add
-        </Button>
+        </button>
       </div>
     );
   }
