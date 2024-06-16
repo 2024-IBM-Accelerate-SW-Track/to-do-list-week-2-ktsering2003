@@ -1,4 +1,26 @@
-.Home {
-  background-color: ghostwhite;
-  height: 100vh;
+.hero-section {
+  background-color: #0f62fe;
+  color: white;
+  padding: 50px 20px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.todo-paper {
+  padding: 20px;
+  margin-top: 20px;
 }
