@@ -22,7 +22,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: centers;
+  text-align: center;
 }
 
 .name_title {
@@ -39,4 +39,10 @@
 .profile_image {
   width: 500px;
   height: auto;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile_image:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
